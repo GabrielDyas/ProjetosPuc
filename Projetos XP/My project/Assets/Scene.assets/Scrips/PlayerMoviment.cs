@@ -20,10 +20,15 @@ public class PlayerMoviment : MonoBehaviour
         }
     }
 
-    public void Mover(InputAction.CallbackContext context)
+    public void Move(InputAction.CallbackContext context)
     {
         moveDirection = context.ReadValue<Vector2>(); // Read the input value from the context
 
+    }
+    private void Rotate(InputAction.CallbackContext context)
+    {
+        moveDirection = context.ReadValue<Vector2>();
+        
     }
     public void ControllSpeed(InputAction.CallbackContext context)
     {
