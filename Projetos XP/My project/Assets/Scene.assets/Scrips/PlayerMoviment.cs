@@ -1,68 +1,70 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(CharacterController))]
 public class PlayerMoviment : MonoBehaviour
 {
     [Header("Player Movement Settings")]
-    [SerializeField]
-    private float speed = 5f; // Speed of the player movement
-    [SerializeField]
-    private Vector2 speedDirection; // Speed vector to control movement in both x and y directions, can be set by input actions
-    [SerializeField]
-    private Vector2 moveDirection; // Direction of the player movement, set by input actions
-    private CharacterController pcc; // Reference to the CharacterController component
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float rotationSpeed = 10f;
+    [SerializeField] float speedMultiplier;
+
+    [Header("Component References")]
+    [Tooltip("Arraste o objeto filho que representa o visual do player.")]
+    [SerializeField] private Transform visualChild;
+    [Tooltip("A referência ao componente que calcula a interferência de velocidade.")]
+    [SerializeField] private ProximityInterference interferenceComponent; // Referência ao novo script
+
+    private CharacterController pcc;
+    private Vector2 moveDirection;
+    private Vector2 speedDirection;
+
     void Start()
     {
-        pcc = GetComponent<CharacterController>(); // Get the CharacterController component attached to the player
-        if (pcc == null)
+        pcc = GetComponent<CharacterController>();
+        if (interferenceComponent == null)
         {
-            Debug.LogError("CharacterController component not found on the player object.");
+            Debug.LogWarning("O componente de interferência não foi atribuído.", this);
         }
     }
 
     public void Move(InputAction.CallbackContext context)
     {
-        moveDirection = context.ReadValue<Vector2>(); // Read the input value from the context
-
-    }
-    private void Rotate(InputAction.CallbackContext context)
-    {
         moveDirection = context.ReadValue<Vector2>();
-        
     }
+
     public void ControllSpeed(InputAction.CallbackContext context)
     {
-        speedDirection = context.ReadValue<Vector2>(); // Update the speed variable with the new speed value
+        speedDirection = context.ReadValue<Vector2>();
         ChengeSpeed();
     }
+
     private void ChengeSpeed()
     {
         if (speedDirection.y != 0)
         {
-            if (speed <= 4)
-            {
-                if (speedDirection.y > 0)
-                {
-                    speed = speed + 1; // Set the speed based on the y component of the speedDirection vector
-                }
-            }
-            if (speed >= 1)
-            {
-                if (speedDirection.y < 0)
-                {
-                    speed = speed - 1; // Set the speed based on the y component of the speedDirection vector
-                }
-            }
+            if (speed <= 4) { if (speedDirection.y > 0) { speed = speed + 1; } }
+            if (speed >= 1) { if (speedDirection.y < 0) { speed = speed - 1; } }
         }
     }
+
     public void Update()
     {
-        if (pcc != null)
+        if (pcc == null) return;
+
+        // Pega o multiplicador do outro script. Se não houver, usa 1.
+        speedMultiplier = (interferenceComponent != null) ? interferenceComponent.SpeedMultiplier : 1f;
+
+        // Lógica de Movimento (agora mais limpa)
+        Vector3 move = new Vector3(moveDirection.x, 0f, moveDirection.y);
+        pcc.Move(move * (speed * speedMultiplier) * Time.deltaTime);
+
+        // Lógica de Rotação
+        if (visualChild != null && moveDirection != Vector2.zero)
         {
-            Vector3 move = new Vector3(moveDirection.x, 0f, moveDirection.y); // Create a movement vector based on input
-            pcc.Move(move * speed * Time.deltaTime); // Move the player using the CharacterController
-
-
+            Vector3 rotationDirection = new Vector3(moveDirection.x, 0f, moveDirection.y);
+            Quaternion targetRotation = Quaternion.LookRotation(rotationDirection);
+            visualChild.rotation = Quaternion.Slerp(visualChild.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
     }
 }
