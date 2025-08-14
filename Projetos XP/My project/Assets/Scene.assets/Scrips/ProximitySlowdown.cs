@@ -14,24 +14,17 @@ public class ProximitySlowdown : MonoBehaviour
     [Tooltip("A distância MÍNIMA para o slowdown ser máximo.")]
     [SerializeField] private float minDistance = 5f;
     [Tooltip("O multiplicador de velocidade no ponto mais próximo (ex: 0.3 para 30% da velocidade).")]
-    [Range(0f, 1f)] // Garante que o valor no Inspector seja um slider de 0 a 1
+    [Range(0f, 1f)]
     [SerializeField] private float minimumSpeedMultiplier = 0.3f;
 
-    // A propriedade pública que o script do Player irá ler.
+    // A propriedade pública que o script do Player irá ler. Inicia em 1 (sem efeito).
     public float SpeedMultiplier { get; private set; } = 1f;
 
     private Transform closestEnemy;
 
-    void Start()
-    {
-        if (targetToMeasureFrom == null)
-        {
-            Debug.LogError("O 'targetToMeasureFrom' (Player) não foi atribuído no Inspector!", this);
-        }
-    }
-
     void Update()
     {
+        // Ponto de falha 1: Se o Player não foi atribuído, não faz nada.
         if (targetToMeasureFrom == null) return;
 
         FindClosestEnemy();
@@ -40,6 +33,7 @@ public class ProximitySlowdown : MonoBehaviour
 
     private void FindClosestEnemy()
     {
+        // Ponto de falha 2: Procura por objetos com a tag. Se não encontrar, a lógica para.
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
         closestEnemy = null;
@@ -57,26 +51,23 @@ public class ProximitySlowdown : MonoBehaviour
 
     private void UpdateSlowdownEffect()
     {
+        // Se, após a busca, nenhum inimigo foi encontrado, reseta o multiplicador e para.
         if (closestEnemy == null)
         {
-            SpeedMultiplier = 1f; // Sem inimigo, velocidade normal.
+            SpeedMultiplier = 1f;
             return;
         }
 
         float currentDistance = Vector3.Distance(targetToMeasureFrom.position, closestEnemy.position);
 
-        // Calcula a intensidade do efeito (0 = longe, 1 = perto)
+        // Ponto de falha 3: Se a distância for maior que maxDistance, intensity será 0.
         float intensity = Mathf.InverseLerp(maxDistance, minDistance, currentDistance);
 
-        // A LÓGICA SIMPLIFICADA ESTÁ AQUI:
-        // Interpola linearmente entre a velocidade normal (1.0) e a velocidade mínima.
+        // A lógica de slowdown. Se intensity for 0, o resultado será 1.
         SpeedMultiplier = Mathf.Lerp(1f, minimumSpeedMultiplier, intensity);
-
-        // DEBUG: Para você ver o valor em tempo real
-        Debug.Log($"<color=cyan>Slowdown Intensity: {intensity:F2}, Final Speed Multiplier: {SpeedMultiplier:F2}</color>");
     }
 
-    // O Gizmo continua útil para visualizar as distâncias
+    // Desenha as esferas de distância no editor para fácil visualização.
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
