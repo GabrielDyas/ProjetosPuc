@@ -13,7 +13,7 @@ public class PlayerMoviment : MonoBehaviour
     [Tooltip("Arraste o objeto filho que representa o visual do player.")]
     [SerializeField] private Transform visualChild;
     [Tooltip("A referência ao componente que calcula a interferência de velocidade.")]
-    [SerializeField] private ProximityInterference interferenceComponent; // Referência ao novo script
+    [SerializeField] private ProximitySlowdown interferenceComponent; // Referência ao novo script
 
     private CharacterController pcc;
     private Vector2 moveDirection;
@@ -48,18 +48,18 @@ public class PlayerMoviment : MonoBehaviour
         }
     }
 
+    // Dentro do seu script PlayerMoviment.cs...
     public void Update()
     {
         if (pcc == null) return;
 
-        // Pega o multiplicador do outro script. Se não houver, usa 1.
-        speedMultiplier = (interferenceComponent != null) ? interferenceComponent.SpeedMultiplier : 1f;
+        float speedMultiplier = (interferenceComponent != null) ? interferenceComponent.SpeedMultiplier : 1f;
+        // DEBUG: Verifica qual valor o Player está lendo
+        Debug.Log($"<color=magenta>Player está usando o multiplicador: {speedMultiplier}</color>");
 
-        // Lógica de Movimento (agora mais limpa)
         Vector3 move = new Vector3(moveDirection.x, 0f, moveDirection.y);
-        pcc.Move(move * (speed * speedMultiplier) * Time.deltaTime);
+        pcc.Move((move * (speed * speedMultiplier)) * Time.deltaTime);
 
-        // Lógica de Rotação
         if (visualChild != null && moveDirection != Vector2.zero)
         {
             Vector3 rotationDirection = new Vector3(moveDirection.x, 0f, moveDirection.y);
