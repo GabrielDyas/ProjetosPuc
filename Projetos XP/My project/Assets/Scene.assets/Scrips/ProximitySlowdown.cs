@@ -1,39 +1,44 @@
 using UnityEngine;
 
-public class ProximitySlowdown : MonoBehaviour
+public class ProximityDebuff : MonoBehaviour
 {
-    [Header("Configurações do Slowdown")]
+    [Header("Referências")]
     [Tooltip("O alvo a partir do qual a distância será medida (o Player).")]
     [SerializeField] private Transform targetToMeasureFrom;
     [Tooltip("A tag usada para identificar os objetos de inimigo na cena.")]
     [SerializeField] private string enemyTag = "Enemy";
 
-    [Header("Parâmetros do Efeito")]
-    [Tooltip("A distância MÁXIMA em que o slowdown começa a ser sentido.")]
+    [Header("Parâmetros de Distância")]
+    [Tooltip("A distância MÁXIMA em que o efeito começa a ser sentido.")]
     [SerializeField] private float maxDistance = 20f;
-    [Tooltip("A distância MÍNIMA para o slowdown ser máximo.")]
+    [Tooltip("A distância MÍNIMA para o efeito ser máximo.")]
     [SerializeField] private float minDistance = 5f;
-    [Tooltip("O multiplicador de velocidade no ponto mais próximo (ex: 0.3 para 30% da velocidade).")]
-    [Range(0f, 1f)]
-    [SerializeField] private float minimumSpeedMultiplier = 0.3f;
 
-    // A propriedade pública que o script do Player irá ler. Inicia em 1 (sem efeito).
+    [Header("Configurações do Slowdown (Base)")]
+    [Tooltip("O multiplicador de velocidade médio no ponto mais próximo (ex: 0.4 para 40% da velocidade).")]
+    [Range(0f, 1f)]
+    [SerializeField] private float baseSlowdownMultiplier = 0.4f;
+
+    [Header("Configurações do Ruído (Flutuação)")]
+    [Tooltip("Define o quão instável a velocidade se torna. 0 = sem ruído, 0.2 = a velocidade varia +/- 20%.")]
+    [Range(0f, 0.5f)]
+    [SerializeField] private float noiseAmount = 0.2f;
+
+    // Propriedade pública que o script do Player irá ler.
     public float SpeedMultiplier { get; private set; } = 1f;
 
     private Transform closestEnemy;
 
     void Update()
     {
-        // Ponto de falha 1: Se o Player não foi atribuído, não faz nada.
         if (targetToMeasureFrom == null) return;
 
         FindClosestEnemy();
-        UpdateSlowdownEffect();
+        UpdateDebuffEffect();
     }
 
     private void FindClosestEnemy()
     {
-        // Ponto de falha 2: Procura por objetos com a tag. Se não encontrar, a lógica para.
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
         closestEnemy = null;
@@ -49,25 +54,36 @@ public class ProximitySlowdown : MonoBehaviour
         }
     }
 
-    private void UpdateSlowdownEffect()
+    private void UpdateDebuffEffect()
     {
-        // Se, após a busca, nenhum inimigo foi encontrado, reseta o multiplicador e para.
         if (closestEnemy == null)
         {
-            SpeedMultiplier = 1f;
+            SpeedMultiplier = 1f; // Sem inimigo, sem efeito.
             return;
         }
 
         float currentDistance = Vector3.Distance(targetToMeasureFrom.position, closestEnemy.position);
 
-        // Ponto de falha 3: Se a distância for maior que maxDistance, intensity será 0.
+        // 1. Calcula a intensidade do efeito (0 = longe, 1 = perto)
         float intensity = Mathf.InverseLerp(maxDistance, minDistance, currentDistance);
 
-        // A lógica de slowdown. Se intensity for 0, o resultado será 1.
-        SpeedMultiplier = Mathf.Lerp(1f, minimumSpeedMultiplier, intensity);
+        // 2. Calcula o slowdown base (o ponto central da nossa flutuação)
+        float centerMultiplier = Mathf.Lerp(1f, baseSlowdownMultiplier, intensity);
+
+        // 3. Calcula o alcance do ruído com base na intensidade
+        // O ruído é zero quando longe e aumenta até o máximo quando perto.
+        float currentNoiseRange = Mathf.Lerp(0f, noiseAmount, intensity);
+
+        // 4. Define os limites mínimo e máximo para a flutuação aleatória
+        float randomMin = centerMultiplier - currentNoiseRange;
+        float randomMax = centerMultiplier + currentNoiseRange;
+
+        // 5. Gera o valor final aleatório e o limita para segurança
+        SpeedMultiplier = Random.Range(randomMin, randomMax);
+        SpeedMultiplier = Mathf.Clamp(SpeedMultiplier, 0f, 1.5f); // Um clamp de segurança
     }
 
-    // Desenha as esferas de distância no editor para fácil visualização.
+    // O Gizmo continua útil para visualizar as distâncias
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {

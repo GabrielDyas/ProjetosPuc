@@ -13,7 +13,7 @@ public class PlayerMoviment : MonoBehaviour
     [Tooltip("Arraste o objeto filho que representa o visual do player.")]
     [SerializeField] private Transform visualChild;
     [Tooltip("A referência ao componente que calcula a interferência de velocidade.")]
-    [SerializeField] private ProximitySlowdown si; // Referência ao novo script
+    [SerializeField] private ProximityDebuff si;
 
     private CharacterController pcc;
     private Vector2 moveDirection;
