@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement; // NOVO: Necessário para reiniciar a cena
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMoviment : MonoBehaviour
@@ -11,10 +10,10 @@ public class PlayerMoviment : MonoBehaviour
     [SerializeField] float speedMultiplier;
     [SerializeField] public float finalSpeed;
 
-    // NOVO: Seção para as vidas do jogador
     [Header("Health Settings")]
     [SerializeField] private int maxHealth = 3;
     private int currentHealth;
+    public int VidaAtual => currentHealth;
 
     [Header("Song Area Settings")]
     [SerializeField] private float songAreaBaseSize = 1.5f;
@@ -24,6 +23,8 @@ public class PlayerMoviment : MonoBehaviour
     [SerializeField] private Transform visualChild;
     [SerializeField] private ProximityDebuff si;
     [SerializeField] private Transform songArea;
+    [SerializeField] private AltarManager altarManager; // Referência ao AltarManager
+    [SerializeField] private UI_Manager uiManager; // Referência ao UI_Manager
 
     private CharacterController pcc;
     private Vector2 moveDirection;
@@ -37,7 +38,6 @@ public class PlayerMoviment : MonoBehaviour
             Debug.LogWarning("O componente de interferência não foi atribuído.", this);
         }
 
-        // NOVO: Inicializa a vida do jogador
         currentHealth = maxHealth;
     }
 
@@ -47,7 +47,37 @@ public class PlayerMoviment : MonoBehaviour
         UpdateSongArea();
     }
 
-    // --- MÉTODOS DE INPUT E MOVIMENTO (sem alterações) ---
+    public void TakeDamage(int damageAmount)
+    {
+        currentHealth -= damageAmount;
+        Debug.Log($"<color=orange>Player tomou {damageAmount} de dano! Vidas restantes: {currentHealth}</color>");
+
+        if (currentHealth <= 0)
+        {
+            Debug.Log("<color=red>Player morreu.</color>");
+            this.enabled = false;
+        }
+    }
+
+    // Método que detecta colisões do CharacterController
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        // Verifica se o objeto com o qual colidimos tem a tag "PortaDeSaida"
+        if (hit.gameObject.CompareTag("PortaDeSaida"))
+        {
+            // Se tiver, pergunta ao AltarManager se as portas já foram abertas (todos os altares ativados)
+            if (altarManager != null && altarManager.PortasAbertas)
+            {
+                // Se sim, avisa a UI para mostrar a tela final
+                if (uiManager != null)
+                {
+                    uiManager.MostrarTelaFinal();
+                }
+            }
+        }
+    }
+
+    // --- MÉTODOS DE INPUT E MOVIMENTO ---
 
     public void Move(InputAction.CallbackContext context)
     {
@@ -97,28 +127,5 @@ public class PlayerMoviment : MonoBehaviour
             newScale = Mathf.Max(0, newScale);
             songArea.localScale = new Vector3(newScale, newScale, newScale);
         }
-    }
-
-    // --- NOVO: LÓGICA DE DANO E VIDAS ---
-
-    /// <summary>
-    /// Função pública que será chamada pelo inimigo para causar dano.
-    /// </summary>
-    public void TakeDamage(int damageAmount)
-    {
-        currentHealth -= damageAmount;
-        Debug.Log($"<color=orange>Player tomou {damageAmount} de dano! Vidas restantes: {currentHealth}</color>");
-
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
-    }
-
-    private void Die()
-    {
-        Debug.Log("<color=red>Fim de Jogo! Reiniciando a cena...</color>");
-        // Recarrega a cena atual
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

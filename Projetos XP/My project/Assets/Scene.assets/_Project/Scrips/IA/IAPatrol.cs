@@ -5,10 +5,19 @@ using System.Collections;
 [RequireComponent(typeof(NavMeshAgent))]
 public class IAPatrol : MonoBehaviour
 {
+    // CORREÇÃO: A enumeração precisa ser pública para ser acessada por outros scripts.
+    public enum PatrolState
+    {
+        Patrolling,
+        Hunting,
+        WaitingAfterHunt,
+        Investigating
+    }
+
     [Header("Referências")]
     [SerializeField] private Transform[] patrolPoints;
     private Transform playerTarget;
-    private Vector3 investigationTargetPosition; // NOVO: Guarda a posição para investigar
+    private Vector3 investigationTargetPosition;
 
     [Header("Parâmetros de Patrulha")]
     [SerializeField] private float patrolSpeed = 3.5f;
@@ -23,22 +32,14 @@ public class IAPatrol : MonoBehaviour
     [SerializeField] private float attackCooldown = 2.5f;
     [SerializeField] private float pauseAfterAttack = 1.5f;
 
-    // NOVO: Adicionado estado de Investigação
-    private enum PatrolState
-    {
-        Patrolling,
-        Hunting,
-        WaitingAfterHunt,
-        Investigating
-    }
-    [SerializeField] private PatrolState currentState;
+    [SerializeField] public PatrolState currentState;
+    // CORREÇÃO: Propriedade pública para que o UI_Manager possa ler o estado atual de forma segura.
+    public PatrolState CurrentState => currentState;
 
     private NavMeshAgent navMeshAgent;
     private int lastPatrolIndex = -1;
     private bool isAgentActive = true;
     private float lastAttackTime = -99f;
-
-    // --- MÉTODOS PRINCIPAIS DA UNITY ---
 
     void Start()
     {
@@ -58,10 +59,8 @@ public class IAPatrol : MonoBehaviour
     {
         if (!isAgentActive) return;
 
-        // Lógica de cada estado
         if (currentState == PatrolState.Patrolling)
         {
-            // Se chegou ao ponto de patrulha, espera
             if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
             {
                 StartCoroutine(WaitAtPoint());
@@ -69,7 +68,6 @@ public class IAPatrol : MonoBehaviour
         }
         else if (currentState == PatrolState.Hunting)
         {
-            // Persegue o jogador e ataca se estiver perto
             if (playerTarget != null)
             {
                 navMeshAgent.destination = playerTarget.position;
@@ -79,10 +77,8 @@ public class IAPatrol : MonoBehaviour
                 }
             }
         }
-        // NOVO: Lógica para o estado de Investigação
         else if (currentState == PatrolState.Investigating)
         {
-            // Se chegou ao ponto de investigação, espera e depois volta a patrulhar
             if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
             {
                 StartCoroutine(FinishInvestigation());
@@ -90,16 +86,8 @@ public class IAPatrol : MonoBehaviour
         }
     }
 
-    // --- NOVO: MÉTODO PÚBLICO PARA CHAMAR O INIMIGO ---
-
-    /// <summary>
-    /// Ordena que o inimigo vá para uma localização específica para investigar.
-    /// Esta função pode ser chamada por outros scripts.
-    /// </summary>
-    /// <param name="targetLocation">O Transform do local para onde o inimigo deve ir.</param>
     public void CallToLocation(Transform targetLocation)
     {
-        // A caça ao jogador sempre tem prioridade máxima.
         if (currentState == PatrolState.Hunting)
         {
             Debug.Log("Inimigo está caçando e ignorou o chamado.");
@@ -114,11 +102,9 @@ public class IAPatrol : MonoBehaviour
 
         currentState = PatrolState.Investigating;
         investigationTargetPosition = targetLocation.position;
-        navMeshAgent.speed = patrolSpeed; // Usa a velocidade de patrulha para investigar
+        navMeshAgent.speed = patrolSpeed;
         navMeshAgent.destination = investigationTargetPosition;
     }
-
-    // --- LÓGICA DE ESTADOS E AÇÕES ---
 
     private void AttackPlayer()
     {
@@ -150,12 +136,11 @@ public class IAPatrol : MonoBehaviour
         MoveToNextPatrolPoint();
     }
 
-    // NOVO: Corotina para quando o inimigo termina de investigar um local
     private IEnumerator FinishInvestigation()
     {
-        isAgentActive = false; // Pausa o Update para não chamar a corotina várias vezes
+        isAgentActive = false;
         Debug.Log("<color=lightblue>Inimigo chegou ao ponto de investigação. Esperando...</color>");
-        yield return new WaitForSeconds(waitTimeAtPoint); // Reutiliza o tempo de espera da patrulha
+        yield return new WaitForSeconds(waitTimeAtPoint);
 
         Debug.Log("<color=green>Investigação terminada. Voltando a patrulhar.</color>");
         isAgentActive = true;
@@ -189,7 +174,6 @@ public class IAPatrol : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        // Só inicia a busca se o inimigo estava de fato caçando o jogador
         if (other.CompareTag("SongArea") && currentState == PatrolState.Hunting)
         {
             StartCoroutine(LoseTargetAndSearch());

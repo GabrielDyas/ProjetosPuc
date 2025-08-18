@@ -13,6 +13,8 @@ public class AltarManager : MonoBehaviour
 
     [SerializeField] private bool doorsHaveBeenOpened = false; // Trava para garantir que as portas abram apenas uma vez
 
+    public bool PortasAbertas => doorsHaveBeenOpened;
+
     void Update()
     {
         // Se as portas já abriram, não precisa verificar mais nada.
