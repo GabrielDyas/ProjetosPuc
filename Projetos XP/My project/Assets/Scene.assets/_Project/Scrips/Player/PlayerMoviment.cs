@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerMoviment : MonoBehaviour
 {
     [Header("Player Movement Settings")]
-    [SerializeField] private float speed = 5f;
+    [SerializeField] private float speed = 3f;
     [SerializeField] private float rotationSpeed = 10f;
     [SerializeField] float speedMultiplier;
     [SerializeField] public float finalSpeed;
@@ -23,16 +23,24 @@ public class PlayerMoviment : MonoBehaviour
     [SerializeField] private Transform visualChild;
     [SerializeField] private ProximityDebuff si;
     [SerializeField] private Transform songArea;
-    [SerializeField] private AltarManager altarManager; // Referência ao AltarManager
-    [SerializeField] private UI_Manager uiManager; // Referência ao UI_Manager
+    [SerializeField] private AltarManager altarManager;
+    [SerializeField] private UI_Manager uiManager;
 
     private CharacterController pcc;
     private Vector2 moveDirection;
     private Vector2 speedDirection;
+    private Animator animator; // NOVO: Referência para o Animator
 
     void Start()
     {
         pcc = GetComponent<CharacterController>();
+
+        // NOVO: Pega o componente Animator que está no objeto visual
+        if (visualChild != null)
+        {
+            animator = visualChild.GetComponent<Animator>();
+        }
+
         if (si == null)
         {
             Debug.LogWarning("O componente de interferência não foi atribuído.", this);
@@ -59,16 +67,12 @@ public class PlayerMoviment : MonoBehaviour
         }
     }
 
-    // Método que detecta colisões do CharacterController
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        // Verifica se o objeto com o qual colidimos tem a tag "PortaDeSaida"
         if (hit.gameObject.CompareTag("PortaDeSaida"))
         {
-            // Se tiver, pergunta ao AltarManager se as portas já foram abertas (todos os altares ativados)
             if (altarManager != null && altarManager.PortasAbertas)
             {
-                // Se sim, avisa a UI para mostrar a tela final
                 if (uiManager != null)
                 {
                     uiManager.MostrarTelaFinal();
@@ -76,8 +80,6 @@ public class PlayerMoviment : MonoBehaviour
             }
         }
     }
-
-    // --- MÉTODOS DE INPUT E MOVIMENTO ---
 
     public void Move(InputAction.CallbackContext context)
     {
@@ -110,6 +112,12 @@ public class PlayerMoviment : MonoBehaviour
         Vector3 finalVelocity = move.normalized * speed * speedMultiplier;
         finalSpeed = finalVelocity.magnitude;
         pcc.Move(finalVelocity * Time.deltaTime);
+
+        // NOVO: Atualiza o parâmetro "Speed" no Animator
+        if (animator != null)
+        {
+            animator.SetFloat("Speed", finalSpeed);
+        }
 
         if (visualChild != null && moveDirection != Vector2.zero)
         {
