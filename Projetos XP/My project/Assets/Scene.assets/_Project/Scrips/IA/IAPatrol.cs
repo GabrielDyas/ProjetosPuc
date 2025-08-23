@@ -45,7 +45,6 @@ public class IAPatrol : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         if (animator == null)
         {
-            // Tenta pegar o animator no mesmo objeto se não foi arrastado
             animator = GetComponent<Animator>();
         }
 
@@ -56,7 +55,6 @@ public class IAPatrol : MonoBehaviour
             return;
         }
 
-        // Inicia patrulhando
         ChangeState(PatrolState.Patrolling);
         MoveToNextPatrolPoint();
     }
@@ -92,14 +90,14 @@ public class IAPatrol : MonoBehaviour
         }
     }
 
-    // NOVO: Método central para mudar de estado e atualizar a animação
+
     private void ChangeState(PatrolState newState)
     {
         currentState = newState;
 
         if (animator == null) return;
 
-        // Atualiza os parâmetros do Animator com base no novo estado
+
         animator.SetBool("Idle", newState == PatrolState.WaitingAfterHunt);
         animator.SetBool("Patrol", newState == PatrolState.Patrolling || newState == PatrolState.Investigating);
         animator.SetBool("Hunting", newState == PatrolState.Hunting);
@@ -150,17 +148,17 @@ public class IAPatrol : MonoBehaviour
     private IEnumerator WaitAtPoint()
     {
         isAgentActive = false;
-        ChangeState(PatrolState.WaitingAfterHunt); // Animação de Idle
+        ChangeState(PatrolState.WaitingAfterHunt);
         yield return new WaitForSeconds(waitTimeAtPoint);
         isAgentActive = true;
-        ChangeState(PatrolState.Patrolling); // Volta para a animação de patrulha
+        ChangeState(PatrolState.Patrolling);
         MoveToNextPatrolPoint();
     }
 
     private IEnumerator FinishInvestigation()
     {
         isAgentActive = false;
-        ChangeState(PatrolState.WaitingAfterHunt); // Animação de Idle
+        ChangeState(PatrolState.WaitingAfterHunt); 
         Debug.Log("<color=lightblue>Inimigo chegou ao ponto de investigação. Esperando...</color>");
         yield return new WaitForSeconds(waitTimeAtPoint);
 
@@ -189,7 +187,7 @@ public class IAPatrol : MonoBehaviour
             playerTarget = other.transform.parent;
             navMeshAgent.speed = huntingSpeed;
             navMeshAgent.isStopped = false;
-            ChangeState(PatrolState.Hunting); // Animação de Caça
+            ChangeState(PatrolState.Hunting); 
             Debug.Log("<color=red>Jogador detectado! Caçando.</color>");
         }
     }
@@ -206,14 +204,14 @@ public class IAPatrol : MonoBehaviour
     {
         playerTarget = null;
         navMeshAgent.isStopped = true;
-        ChangeState(PatrolState.WaitingAfterHunt); // Animação de Idle
+        ChangeState(PatrolState.WaitingAfterHunt);
         Debug.Log($"<color=orange>Alvo perdido. Esperando por {waitTimeAfterHunt} segundos...</color>");
         yield return new WaitForSeconds(waitTimeAfterHunt);
 
         Debug.Log("<color=green>Voltando a patrulhar.</color>");
         navMeshAgent.isStopped = false;
         navMeshAgent.speed = patrolSpeed;
-        ChangeState(PatrolState.Patrolling); // Animação de Patrulha
+        ChangeState(PatrolState.Patrolling);
         MoveToNextPatrolPoint();
     }
 }

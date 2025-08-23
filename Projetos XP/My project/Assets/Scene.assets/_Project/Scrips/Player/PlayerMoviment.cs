@@ -29,29 +29,18 @@ public class PlayerMoviment : MonoBehaviour
     private CharacterController pcc;
     private Vector2 moveDirection;
     private Vector2 speedDirection;
-    private Animator animator; // NOVO: Referência para o Animator
+    private Animator animator; 
 
     void Start()
     {
         pcc = GetComponent<CharacterController>();
-
-        // NOVO: Pega o componente Animator que está no objeto visual
-        if (visualChild != null)
-        {
-            animator = visualChild.GetComponent<Animator>();
-        }
-
-        if (si == null)
-        {
-            Debug.LogWarning("O componente de interferência não foi atribuído.", this);
-        }
-
+        animator = visualChild.GetComponent<Animator>();
         currentHealth = maxHealth;
     }
 
     public void Update()
     {
-        Movimente();
+        Moviment();
         UpdateSongArea();
     }
 
@@ -104,7 +93,7 @@ public class PlayerMoviment : MonoBehaviour
         }
     }
 
-    private void Movimente()
+    private void Moviment()
     {
         if (pcc == null) return;
         float speedMultiplier = (si != null) ? si.SpeedMultiplier : 1f;
@@ -113,7 +102,7 @@ public class PlayerMoviment : MonoBehaviour
         finalSpeed = finalVelocity.magnitude;
         pcc.Move(finalVelocity * Time.deltaTime);
 
-        // NOVO: Atualiza o parâmetro "Speed" no Animator
+
         if (animator != null)
         {
             animator.SetFloat("Speed", finalSpeed);

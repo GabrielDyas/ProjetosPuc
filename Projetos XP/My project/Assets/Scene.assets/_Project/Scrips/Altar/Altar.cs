@@ -18,7 +18,7 @@ public class Altar : MonoBehaviour
     [SerializeField] private bool estaAtivado = false;
 
     private IAPatrol inimigo;
-    private bool inimigoChamadoNaMetade = false;
+
 
     public bool EstaAtivado => estaAtivado;
     public float ProgressoDaCarga => cargaAtual;
@@ -56,13 +56,13 @@ public class Altar : MonoBehaviour
     {
         cargaAtual += Time.deltaTime;
 
-        if (!inimigoChamadoNaMetade && cargaAtual >= tempoParaCarregar / 2)
+        if (cargaAtual >= tempoParaCarregar / 2)
         {
             if (inimigo != null)
             {
                 inimigo.CallToLocation(pointPatrol.transform);
             }
-            inimigoChamadoNaMetade = true;
+
         }
 
         if (cargaAtual >= tempoParaCarregar)

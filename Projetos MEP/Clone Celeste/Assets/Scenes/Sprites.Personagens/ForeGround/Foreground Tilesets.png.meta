@@ -1,0 +1,1703 @@
+fileFormatVersion: 2
+guid: cda6123f7ccb7c84ea321c1ab6bbf23a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8395337171809614444
+    second: Foreground Tilesets_0
+  - first:
+      213: -7268091283861259962
+    second: Foreground Tilesets_1
+  - first:
+      213: -7290997203262935436
+    second: Foreground Tilesets_2
+  - first:
+      213: 6283395402155111868
+    second: Foreground Tilesets_3
+  - first:
+      213: -2931333908731691055
+    second: Foreground Tilesets_4
+  - first:
+      213: 2769063768429045988
+    second: Foreground Tilesets_5
+  - first:
+      213: -734937361796916201
+    second: Foreground Tilesets_6
+  - first:
+      213: -994791529296644040
+    second: Foreground Tilesets_7
+  - first:
+      213: 4228132985220450315
+    second: Foreground Tilesets_8
+  - first:
+      213: 3419376257484937454
+    second: Foreground Tilesets_9
+  - first:
+      213: -1994135556897215045
+    second: Foreground Tilesets_10
+  - first:
+      213: 3657065680245524058
+    second: Foreground Tilesets_11
+  - first:
+      213: 7625089422066759540
+    second: Foreground Tilesets_12
+  - first:
+      213: -507139458437923437
+    second: Foreground Tilesets_13
+  - first:
+      213: -3605109802651945933
+    second: Foreground Tilesets_14
+  - first:
+      213: -6131388317677531991
+    second: Foreground Tilesets_15
+  - first:
+      213: -1195501093224455753
+    second: Foreground Tilesets_16
+  - first:
+      213: 5347517201528744566
+    second: Foreground Tilesets_17
+  - first:
+      213: 5707779052555453573
+    second: Foreground Tilesets_18
+  - first:
+      213: 7475727491520271859
+    second: Foreground Tilesets_19
+  - first:
+      213: 7067960396841589961
+    second: Foreground Tilesets_20
+  - first:
+      213: 4041341699401513558
+    second: Foreground Tilesets_21
+  - first:
+      213: 8019137522388881221
+    second: Foreground Tilesets_22
+  - first:
+      213: 5172108572960676074
+    second: Foreground Tilesets_23
+  - first:
+      213: 1520083988214395959
+    second: Foreground Tilesets_24
+  - first:
+      213: -3660257955601158764
+    second: Foreground Tilesets_25
+  - first:
+      213: -358238928101351136
+    second: Foreground Tilesets_26
+  - first:
+      213: 7880614611822580894
+    second: Foreground Tilesets_27
+  - first:
+      213: -3873479226065092053
+    second: Foreground Tilesets_28
+  - first:
+      213: -746309596890827099
+    second: Foreground Tilesets_29
+  - first:
+      213: 6999180529770669962
+    second: Foreground Tilesets_30
+  - first:
+      213: -8833588180766646310
+    second: Foreground Tilesets_31
+  - first:
+      213: 6421544788390914810
+    second: Foreground Tilesets_32
+  - first:
+      213: -8917762111146896990
+    second: Foreground Tilesets_33
+  - first:
+      213: -3221532881476158480
+    second: Foreground Tilesets_34
+  - first:
+      213: 3443913939122613553
+    second: Foreground Tilesets_35
+  - first:
+      213: 2442660871824871869
+    second: Foreground Tilesets_36
+  - first:
+      213: 8294529888219805417
+    second: Foreground Tilesets_37
+  - first:
+      213: -6274957775833668735
+    second: Foreground Tilesets_38
+  - first:
+      213: -197666311643025541
+    second: Foreground Tilesets_39
+  - first:
+      213: -672138724657220366
+    second: Foreground Tilesets_40
+  - first:
+      213: -6327356888743305840
+    second: Foreground Tilesets_41
+  - first:
+      213: -5626169589010681505
+    second: Foreground Tilesets_42
+  - first:
+      213: 7686737501494303834
+    second: Foreground Tilesets_43
+  - first:
+      213: -8717231605217571213
+    second: Foreground Tilesets_44
+  - first:
+      213: 5587066777556326082
+    second: Foreground Tilesets_45
+  - first:
+      213: 6562986696901663205
+    second: Foreground Tilesets_46
+  - first:
+      213: 718756355441514425
+    second: Foreground Tilesets_47
+  - first:
+      213: -4473876670581531113
+    second: Foreground Tilesets_48
+  - first:
+      213: -5172038319701781728
+    second: Foreground Tilesets_49
+  - first:
+      213: -7856981393193957818
+    second: Foreground Tilesets_50
+  - first:
+      213: 2698520546239866679
+    second: Foreground Tilesets_51
+  - first:
+      213: -5114501822187198227
+    second: Foreground Tilesets_52
+  - first:
+      213: 7603694647759986435
+    second: Foreground Tilesets_53
+  - first:
+      213: 3683343257970726911
+    second: Foreground Tilesets_54
+  - first:
+      213: 7466167480595829578
+    second: Foreground Tilesets_55
+  - first:
+      213: 3492093776458458192
+    second: Foreground Tilesets_56
+  - first:
+      213: 82361784869865550
+    second: Foreground Tilesets_57
+  - first:
+      213: -7075332250819175724
+    second: Foreground Tilesets_58
+  - first:
+      213: 5812118117157853738
+    second: Foreground Tilesets_59
+  - first:
+      213: 5017822388311380272
+    second: Foreground Tilesets_60
+  - first:
+      213: -700079383552937510
+    second: Foreground Tilesets_61
+  - first:
+      213: 3618503155071255132
+    second: Foreground Tilesets_62
+  - first:
+      213: 2899053803025736356
+    second: Foreground Tilesets_63
+  - first:
+      213: -5055000465165352310
+    second: Foreground Tilesets_64
+  - first:
+      213: 3982996603820054419
+    second: Foreground Tilesets_65
+  - first:
+      213: -664874337401973700
+    second: Foreground Tilesets_66
+  - first:
+      213: -1905751912043110110
+    second: Foreground Tilesets_67
+  - first:
+      213: -5538828711740402759
+    second: Foreground Tilesets_68
+  - first:
+      213: -1746178669606357251
+    second: Foreground Tilesets_69
+  - first:
+      213: 4560072737955777558
+    second: Foreground Tilesets_70
+  - first:
+      213: -4018627962924198485
+    second: Foreground Tilesets_71
+  - first:
+      213: 8861293116575984696
+    second: Foreground Tilesets_72
+  - first:
+      213: -5926045834745212558
+    second: Foreground Tilesets_73
+  - first:
+      213: 3437991525312697405
+    second: Foreground Tilesets_74
+  - first:
+      213: 5380790955843155861
+    second: Foreground Tilesets_75
+  - first:
+      213: 354188124063115408
+    second: Foreground Tilesets_76
+  - first:
+      213: 765814623520006677
+    second: Foreground Tilesets_77
+  - first:
+      213: -5594906611809611201
+    second: Foreground Tilesets_78
+  - first:
+      213: 361012263813639063
+    second: Foreground Tilesets_79
+  - first:
+      213: 3961534797108203887
+    second: Foreground Tilesets_80
+  - first:
+      213: -4044849071743110714
+    second: Foreground Tilesets_81
+  - first:
+      213: -7714291658049998986
+    second: Foreground Tilesets_82
+  - first:
+      213: -1562803090074154620
+    second: Foreground Tilesets_83
+  - first:
+      213: 2098128530384208931
+    second: Foreground Tilesets_84
+  - first:
+      213: -5462575920353395245
+    second: Foreground Tilesets_85
+  - first:
+      213: -2985248185894687224
+    second: Foreground Tilesets_86
+  - first:
+      213: -747146509550997489
+    second: Foreground Tilesets_87
+  - first:
+      213: 3589431183839501962
+    second: Foreground Tilesets_88
+  - first:
+      213: 8149281764081824934
+    second: Foreground Tilesets_89
+  - first:
+      213: 1899909137950963936
+    second: Foreground Tilesets_90
+  - first:
+      213: 376635816331809302
+    second: Foreground Tilesets_91
+  - first:
+      213: -2211793518940721210
+    second: Foreground Tilesets_92
+  - first:
+      213: 2991410954142850228
+    second: Foreground Tilesets_93
+  - first:
+      213: 2525307014636625117
+    second: Foreground Tilesets_94
+  - first:
+      213: 5305293193043208218
+    second: Foreground Tilesets_95
+  - first:
+      213: 2052960775696723763
+    second: Foreground Tilesets_96
+  - first:
+      213: 1542039739525911092
+    second: Foreground Tilesets_97
+  - first:
+      213: 4636616821031114345
+    second: Foreground Tilesets_98
+  - first:
+      213: 7702340797632228088
+    second: Foreground Tilesets_99
+  - first:
+      213: 2985530844202335422
+    second: Foreground Tilesets_100
+  - first:
+      213: 1982413013852140205
+    second: Foreground Tilesets_101
+  - first:
+      213: 1046822943409283597
+    second: Foreground Tilesets_102
+  - first:
+      213: -7363609446588877520
+    second: Foreground Tilesets_103
+  - first:
+      213: 6841292257420240343
+    second: Foreground Tilesets_104
+  - first:
+      213: 3092844197889843303
+    second: Foreground Tilesets_105
+  - first:
+      213: -1417300574195376128
+    second: Foreground Tilesets_106
+  - first:
+      213: -196140540814487640
+    second: Foreground Tilesets_107
+  - first:
+      213: 9218305343420908283
+    second: Foreground Tilesets_108
+  - first:
+      213: 2742142721584715391
+    second: Foreground Tilesets_109
+  - first:
+      213: 6195676479831563739
+    second: Foreground Tilesets_110
+  - first:
+      213: 3268046201378503923
+    second: Foreground Tilesets_111
+  - first:
+      213: 797951331474784790
+    second: Foreground Tilesets_112
+  - first:
+      213: -8341963971854083174
+    second: Foreground Tilesets_113
+  - first:
+      213: -4277526892925847400
+    second: Foreground Tilesets_114
+  - first:
+      213: -4265039723325412359
+    second: Foreground Tilesets_115
+  - first:
+      213: -8963133573583987315
+    second: Foreground Tilesets_116
+  - first:
+      213: 1273486958918435705
+    second: Foreground Tilesets_117
+  - first:
+      213: -364686856479792843
+    second: Foreground Tilesets_118
+  - first:
+      213: 5269939892708479576
+    second: Foreground Tilesets_119
+  - first:
+      213: 3831044782732009975
+    second: Foreground Tilesets_120
+  - first:
+      213: 3456821721124545946
+    second: Foreground Tilesets_121
+  - first:
+      213: -8904054310918233474
+    second: Foreground Tilesets_122
+  - first:
+      213: -6538940115626729223
+    second: Foreground Tilesets_123
+  - first:
+      213: -7412772308754042542
+    second: Foreground Tilesets_124
+  - first:
+      213: -4117292092361639905
+    second: Foreground Tilesets_125
+  - first:
+      213: -1966983877490577780
+    second: Foreground Tilesets_126
+  - first:
+      213: 5818414539428910387
+    second: Foreground Tilesets_127
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Foreground Tilesets_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 535
+        width: 50
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6a38576daa328470800000000000000
+      internalID: 8395337171809614444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_1
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 524
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 649365e3c7d822b90800000000000000
+      internalID: -7268091283861259962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_2
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 535
+        width: 50
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47e65294cac21da90800000000000000
+      internalID: -7290997203262935436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_3
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 524
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb537c0d3da133750800000000000000
+      internalID: 6283395402155111868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_4
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 524
+        width: 33
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1df7df3475fc157d0800000000000000
+      internalID: -2931333908731691055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_5
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 524
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e82e9583d0bd6620800000000000000
+      internalID: 2769063768429045988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_6
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 535
+        width: 50
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71c9ee10d5afcc5f0800000000000000
+      internalID: -734937361796916201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_7
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 524
+        width: 33
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 838b4beef5ac132f0800000000000000
+      internalID: -994791529296644040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_8
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 524
+        width: 28
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b084d276c885daa30800000000000000
+      internalID: 4228132985220450315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_9
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 535
+        width: 50
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee85bcce690147f20800000000000000
+      internalID: 3419376257484937454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_10
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 524
+        width: 26
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbd6a21c6486354e0800000000000000
+      internalID: -1994135556897215045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_11
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 535
+        width: 50
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a568e473cd180c230800000000000000
+      internalID: 3657065680245524058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_12
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 521
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 477b0ee0e62c1d960800000000000000
+      internalID: 7625089422066759540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_13
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 535
+        width: 50
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39d3938795746f8f0800000000000000
+      internalID: -507139458437923437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_14
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 524
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 334f6a43cb318fdc0800000000000000
+      internalID: -3605109802651945933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_15
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 524
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9acc9d08fcee8eaa0800000000000000
+      internalID: -6131388317677531991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_16
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 525
+        width: 50
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b1e3c9f61ab86fe0800000000000000
+      internalID: -1195501093224455753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_17
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 522
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67a696bff82363a40800000000000000
+      internalID: 5347517201528744566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_18
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 535
+        width: 50
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 584cbf3aeca163f40800000000000000
+      internalID: 5707779052555453573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_19
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 524
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f510b1ab8e1fb760800000000000000
+      internalID: 7475727491520271859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_20
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 524
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cc95448880761260800000000000000
+      internalID: 7067960396841589961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_21
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 524
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65afcc81ddab51830800000000000000
+      internalID: 4041341699401513558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_22
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 524
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54fcef2e613b94f60800000000000000
+      internalID: 8019137522388881221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_23
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 524
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae8d217185507c740800000000000000
+      internalID: 5172108572960676074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_24
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 524
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7343742655c681510800000000000000
+      internalID: 1520083988214395959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_25
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 524
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49d681248c6243dc0800000000000000
+      internalID: -3660257955601158764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_26
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 522
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0216dc9c797470bf0800000000000000
+      internalID: -358238928101351136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_27
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 525
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9410757c319d5d60800000000000000
+      internalID: 7880614611822580894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_28
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 391
+        width: 50
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b22098d9a23ae3ac0800000000000000
+      internalID: -3873479226065092053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_29
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 391
+        width: 50
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a67bd0306394a5f0800000000000000
+      internalID: -746309596890827099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_30
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 391
+        width: 50
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a87afcbcb95122160800000000000000
+      internalID: 6999180529770669962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_31
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 391
+        width: 50
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adf90591a5ac86580800000000000000
+      internalID: -8833588180766646310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_32
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 391
+        width: 50
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afa2d4556f8ed1950800000000000000
+      internalID: 6421544788390914810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_34
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 391
+        width: 50
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fb7f57a9e0da43d0800000000000000
+      internalID: -3221532881476158480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_35
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 391
+        width: 50
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13d6b622b7d3bcf20800000000000000
+      internalID: 3443913939122613553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_57
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 247
+        width: 50
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e484c326b9b942100800000000000000
+      internalID: 82361784869865550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_58
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 247
+        width: 50
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dade0afdce5fcd90800000000000000
+      internalID: -7075332250819175724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_59
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 247
+        width: 50
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2a5ec532aac8a050800000000000000
+      internalID: 5812118117157853738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_60
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 247
+        width: 50
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0315d4960e2e2a540800000000000000
+      internalID: 5017822388311380272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_61
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 247
+        width: 50
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad1b0c48281d846f0800000000000000
+      internalID: -700079383552937510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_62
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 215
+        width: 50
+        height: 154
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5207a8a271873230800000000000000
+      internalID: 3618503155071255132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_64
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 247
+        width: 50
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8282660cd709d9b0800000000000000
+      internalID: -5055000465165352310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_90
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 215
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e8f5197b45dd5a10800000000000000
+      internalID: 1899909137950963936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_91
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 215
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 612952a87441a3500800000000000000
+      internalID: 376635816331809302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_92
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 159
+        width: 178
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cfe60b53812e41e0800000000000000
+      internalID: -2211793518940721210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_93
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 103
+        width: 50
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bc95e2e960a38920800000000000000
+      internalID: 2991410954142850228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_94
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 103
+        width: 50
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddcd734a951bb0320800000000000000
+      internalID: 2525307014636625117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_97
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 201
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4325af719fc666510800000000000000
+      internalID: 1542039739525911092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_98
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 199
+        width: 22
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9661921de62985040800000000000000
+      internalID: 4636616821031114345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_99
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 185
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fa2edd852634ea60800000000000000
+      internalID: 7702340797632228088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_100
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 207
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebcf6aa1c7cbe6920800000000000000
+      internalID: 2985530844202335422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_101
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 207
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da2b4c00222f28b10800000000000000
+      internalID: 1982413013852140205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_103
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 127
+        width: 66
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 035fb5fe8343fc990800000000000000
+      internalID: -7363609446588877520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foreground Tilesets_106
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 47
+        width: 50
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 000a02f03acb45ce0800000000000000
+      internalID: -1417300574195376128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f5591bad6f1c89a41b5ad06baca357c6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Foreground Tilesets_33: 889996448
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,6 +1,5 @@
 using UnityEngine;
 
-// Garante que o objeto sempre terá um AudioSource
 [RequireComponent(typeof(AudioSource))]
 public class ControleDeSomPersonagem : MonoBehaviour
 {
