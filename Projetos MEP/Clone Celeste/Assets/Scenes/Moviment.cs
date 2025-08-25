@@ -109,7 +109,7 @@ public class Moviment : MonoBehaviour
     {
         if (context.started && coyoteTimeCounter > 0f)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f); // Zera a velocidade vertical para um pulo consistente
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y);
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isJumpPressed = true;
             coyoteTimeCounter = 0f; // Zera o contador para evitar pulos duplos
@@ -124,12 +124,10 @@ public class Moviment : MonoBehaviour
     {
         if (collision.onGround)
         {
-            // Se está no chão, reseta o contador
             coyoteTimeCounter = coyoteTime;
         }
         else
         {
-            // Se está no ar, começa a contar o tempo
             coyoteTimeCounter -= Time.fixedDeltaTime;
         }
     }
