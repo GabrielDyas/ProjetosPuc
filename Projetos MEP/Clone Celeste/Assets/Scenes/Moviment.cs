@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// Garante que o script Collision esteja no mesmo objeto
 [RequireComponent(typeof(Collision))]
 public class Moviment : MonoBehaviour
 {
@@ -18,29 +17,31 @@ public class Moviment : MonoBehaviour
     [Header("Jump Settings")]
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float constantJumpForce = 5f;
+    [SerializeField] private float coyoteTime = 0.5f;
+    private float coyoteTimeCounter;
     private bool isJumpPressed = false;
+    
 
-    // Referências para outros componentes
     private Rigidbody2D rb;
-    private Collision collision; // Referência para o seu novo script de colisão
+    private Collision collision; 
     private Vector2 moveInput;
     private bool wasGrounded;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        collision = GetComponent<Collision>(); // Pega a referência do script Collision
+        collision = GetComponent<Collision>();
         originalGravityScale = rb.gravityScale;
     }
 
     private void FixedUpdate()
     {
+        TestCoiot();
         if (isDashing)
         {
             return;
         }
 
-        // Lógica para resetar o dash aéreo ao tocar o chão
         if (!wasGrounded && collision.onGround)
         {
             canAirDash = true;
@@ -54,7 +55,6 @@ public class Moviment : MonoBehaviour
 
     private void Move()
     {
-        // A propriedade correta para Rigidbody2D é .velocity
         rb.linearVelocity = new Vector2(moveInput.x * speed, rb.linearVelocity.y);
     }
 
@@ -71,7 +71,6 @@ public class Moviment : MonoBehaviour
     {
         if (context.performed && !isDashing)
         {
-            // Usa a variável onGround do script Collision
             if (collision.onGround)
             {
                 PerformDash();
@@ -90,13 +89,11 @@ public class Moviment : MonoBehaviour
         rb.gravityScale = 0f;
         Vector2 dashDirection = moveInput.normalized;
 
-        // CORREÇÃO: Usa Mathf.Sign para garantir que a direção tenha sempre magnitude 1
         if (dashDirection == Vector2.zero)
         {
             dashDirection = new Vector2(Mathf.Sign(transform.localScale.x), 0);
         }
 
-        // CORREÇÃO: Usa .velocity e aplica a força de forma mais limpa
         rb.linearVelocity = dashDirection * deshForce;
         Invoke("StopDash", dashTime);
     }
@@ -105,21 +102,35 @@ public class Moviment : MonoBehaviour
     {
         rb.gravityScale = originalGravityScale;
         isDashing = false;
-        // CORREÇÃO: Usa .velocity
         rb.linearVelocity = Vector2.zero;
     }
 
     public void Jump(InputAction.CallbackContext context)
     {
-        // Usa a variável onGround do script Collision
-        if (context.started && collision.onGround)
+        if (context.started && coyoteTimeCounter > 0f)
         {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f); // Zera a velocidade vertical para um pulo consistente
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isJumpPressed = true;
+            coyoteTimeCounter = 0f; // Zera o contador para evitar pulos duplos
         }
+
         if (context.canceled)
         {
             isJumpPressed = false;
+        }
+    }
+    private void TestCoiot()
+    {
+        if (collision.onGround)
+        {
+            // Se está no chão, reseta o contador
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            // Se está no ar, começa a contar o tempo
+            coyoteTimeCounter -= Time.fixedDeltaTime;
         }
     }
 
@@ -130,7 +141,6 @@ public class Moviment : MonoBehaviour
 
     private void ApplyConstantJumpForce()
     {
-        // CORREÇÃO: Usa .velocity
         if (isJumpPressed && rb.linearVelocity.y > 0)
         {
             rb.AddForce(Vector2.up * constantJumpForce, ForceMode2D.Force);
