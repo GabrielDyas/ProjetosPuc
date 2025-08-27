@@ -31,15 +31,6 @@ public class Collision : MonoBehaviour
     [SerializeField] private Vector2 sideCollision;
     private Color debugCollisionColor = Color.red;
 
-
-
-
-
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         _Collison();
@@ -65,8 +56,6 @@ public class Collision : MonoBehaviour
         Gizmos.DrawWireCube((Vector2)transform.position + rightOffset, sideCollision);
         Gizmos.DrawWireCube((Vector2)transform.position + leftOffset, sideCollision);
     }
-
-
     public Vector2 GetTilemapIntersectionSize(Tilemap map, BoxCollider2D checkBox)
     {
         // Se não houver mapa ou colisor, não há como calcular
