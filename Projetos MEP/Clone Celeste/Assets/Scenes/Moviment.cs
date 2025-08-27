@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Tilemaps;
 
 [RequireComponent(typeof(Collision))]
 public class Moviment : MonoBehaviour
@@ -13,6 +14,11 @@ public class Moviment : MonoBehaviour
     private bool isDashing = false;
     private float originalGravityScale;
     private bool canAirDash = true;
+
+    [Header("Ajustes de colisão do dash")]
+    [SerializeField] private Tilemap map;
+    [SerializeField] private Transform pe;
+    [SerializeField] private BoxCollider2D colliderPe;
 
     [Header("Jump Settings")]
     [SerializeField] private float jumpForce = 10f;
@@ -37,27 +43,17 @@ public class Moviment : MonoBehaviour
     private void FixedUpdate()
     {
         TestCoiot();
-        if (isDashing)
-        {
-            return;
-        }
-
-        if (!wasGrounded && collision.onGround)
-        {
-            canAirDash = true;
-        }
-        wasGrounded = collision.onGround;
-
+        IsDash();
         Flip();
         Move();
         ApplyConstantJumpForce();
     }
 
+    //Funções de movimentação básica
     private void Move()
     {
         rb.linearVelocity = new Vector2(moveInput.x * speed, rb.linearVelocity.y);
     }
-
     private void Flip()
     {
         if (moveInput.x != 0)
@@ -66,7 +62,12 @@ public class Moviment : MonoBehaviour
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * direction, transform.localScale.y, transform.localScale.z);
         }
     }
+    public void Direction(InputAction.CallbackContext context)
+    {
+        moveInput = context.ReadValue<Vector2>();
+    }
 
+    //Funções do dash
     public void Dash(InputAction.CallbackContext context)
     {
         if (context.performed && !isDashing)
@@ -83,6 +84,19 @@ public class Moviment : MonoBehaviour
         }
     }
 
+    private void IsDash()
+    {
+        if (isDashing)
+        {
+            return;
+        }
+
+        if (!wasGrounded && collision.onGround)
+        {
+            canAirDash = true;
+        }
+        wasGrounded = collision.onGround;
+    }
     private void PerformDash()
     {
         isDashing = true;
@@ -97,7 +111,6 @@ public class Moviment : MonoBehaviour
         rb.linearVelocity = dashDirection * deshForce;
         Invoke("StopDash", dashTime);
     }
-
     private void StopDash()
     {
         rb.gravityScale = originalGravityScale;
@@ -105,6 +118,15 @@ public class Moviment : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
     }
 
+    private void PositionAdjustment()
+    {
+        if (collision.GetTilemapIntersectionSize(map, colliderPe) != Vector2.zero)
+        {
+
+        }
+
+    }
+    //Fuñções do jump 
     public void Jump(InputAction.CallbackContext context)
     {
         if (context.started && coyoteTimeCounter > 0f)
@@ -131,12 +153,6 @@ public class Moviment : MonoBehaviour
             coyoteTimeCounter -= Time.fixedDeltaTime;
         }
     }
-
-    public void Direction(InputAction.CallbackContext context)
-    {
-        moveInput = context.ReadValue<Vector2>();
-    }
-
     private void ApplyConstantJumpForce()
     {
         if (isJumpPressed && rb.linearVelocity.y > 0)
