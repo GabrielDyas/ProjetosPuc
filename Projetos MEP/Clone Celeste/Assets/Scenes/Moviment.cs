@@ -21,7 +21,6 @@ public class Moviment : MonoBehaviour
     [SerializeField] private BoxCollider2D topLeftSide; // Sensor no canto superior esquerdo
     [SerializeField] private BoxCollider2D topRightSide; // Sensor no canto superior direito
 
-
     [Header("Jump Settings")]
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float constantJumpForce = 5f;
@@ -46,24 +45,23 @@ public class Moviment : MonoBehaviour
     {
         if (isDashing)
         {
-            // A lógica de correção de quina do dash é chamada aqui
-            CornerCorrect();
+
             return;
         }
 
         // Lógica normal fora do dash
-        wasGrounded = collision.onGround;
         if (!wasGrounded && collision.onGround)
         {
             canAirDash = true;
         }
+        wasGrounded = collision.onGround;
 
         TestCoiot();
         Flip();
         Move();
         ApplyConstantJumpForce();
-        CornerCorrect(); // Chama a correção para as quinas superiores
     }
+
 
     //Funções de movimentação básica
     private void Move()
@@ -121,51 +119,16 @@ public class Moviment : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
     }
 
-    // NOVA FUNÇÃO PARA CORREÇÃO DE QUINAS
-    private void CornerCorrect()
-    {
-        // --- Correção de Quina Inferior (SOMENTE DURANTE O DASH) ---
-        if (isDashing)
-        {
-            Vector2 ajust = collision.GetTilemapIntersectionSize(map, bottomSide);
-            // Se a colisão tem largura, mas é menor que a largura total do sensor (é uma quina)
-            if (ajust.x > 0 && ajust.x < bottomSide.size.x)
-            {
-                // Ajusta a posição para cima para "desprender" da quina
-                transform.position += new Vector3(0, ajust.y, 0);
-            }
-
-
-
-        }
-
-        // --- Correção de Quina Superior (A QUALQUER MOMENTO) ---
-        // Verifica o canto superior direito
-        Vector2 ajustRight = collision.GetTilemapIntersectionSize(map, topRightSide);
-        // Se a colisão tem altura, mas é menor que a altura total do sensor (é uma quina)
-        if (ajustRight.y > 0 && ajustRight.y < topRightSide.size.y)
-        {
-            // Ajusta a posição para cima para subir na plataforma
-            transform.position += new Vector3(0, topRightSide.size.y - ajustRight.y, 0);
-        }
-
-        // Verifica o canto superior esquerdo
-        Vector2 ajustLeft = collision.GetTilemapIntersectionSize(map, topLeftSide);
-        if (ajustLeft.y > 0 && ajustLeft.y < topLeftSide.size.y)
-        {
-            transform.position += new Vector3(0, topLeftSide.size.y - ajustLeft.y, 0);
-        }
-    }
 
     //Funções do jump 
     public void Jump(InputAction.CallbackContext context)
     {
         if (context.started && coyoteTimeCounter > 0f)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0); // Zera a velocidade Y para um pulo consistente
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y); 
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isJumpPressed = true;
-            coyoteTimeCounter = 0f; // Zera o contador para evitar pulos duplos
+            coyoteTimeCounter = 0f;
         }
 
         if (context.canceled)
