@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
@@ -8,6 +9,9 @@ public class Moviment : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] private float speed = 5f;
     [SerializeField] private float climbSpeed = 3f;
+    [SerializeField] private float stamina = 5f;
+    private float directionMove;
+    private float consumStamina;
     private bool isClimbing = false;
     private bool isClimbInputHeld = false; 
 
@@ -34,6 +38,7 @@ public class Moviment : MonoBehaviour
 
     private void Awake()
     {
+        consumStamina = stamina;
         rb = GetComponent<Rigidbody2D>();
         collision = GetComponent<Collision>();
         originalGravityScale = rb.gravityScale;
@@ -61,6 +66,10 @@ public class Moviment : MonoBehaviour
         if (isClimbing)
         {
             rb.linearVelocity = new Vector2(0, moveInput.y * climbSpeed);
+            if (directionMove.y != 0)
+            {
+
+            }
         }
         else
         {
@@ -72,8 +81,8 @@ public class Moviment : MonoBehaviour
     {
         if (moveInput.x != 0 && !isClimbing)
         {
-            float direction = Mathf.Sign(moveInput.x);
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * direction, transform.localScale.y, transform.localScale.z);
+            directionMove = Mathf.Sign(moveInput.x);
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * directionMove, transform.localScale.y, transform.localScale.z);
         }
     }
 
