@@ -23,8 +23,8 @@ public class Movement : MonoBehaviour
 
     public void DirectionMovoment(InputAction.CallbackContext context)
     {
-        Vector2 newDirection = context.ReadValue<Vector2>();
-        direction = new Vector3(newDirection.y, characterController.s,);
+        direction = context.ReadValue<Vector2>();
+
     }
 
     private void Move()
