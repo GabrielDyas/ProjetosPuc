@@ -1,23 +1,20 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Linq; // Necessário para usar o OrderBy
 
 public class ObjectGrabbing : MonoBehaviour
 {
     [SerializeField] private Transform handPoint;
-    [SerializeField] private float grabDistance = 2f;
+    [SerializeField] private float grabRadius = 1.5f; // Raio da área de detecção na frente do jogador
     [SerializeField] private float throwForce = 10f;
     [SerializeField] private LayerMask grabbableLayer;
-    [Tooltip("Arraste a sua câmera principal (ou a câmera do Cinemachine) para este campo.")]
-    [SerializeField] private Camera playerCamera; // Tornamos esta variável pública
+    [SerializeField] private Camera playerCamera;
 
     private GameObject grabbedObject = null;
     private Rigidbody grabbedObjectRb = null;
 
-    // O método Awake() não é mais necessário para a câmera, então foi removido.
-
     public void OnInteract(InputAction.CallbackContext context)
     {
-        // Adicionamos uma verificação de segurança para garantir que a câmera foi atribuída
         if (playerCamera == null)
         {
             Debug.LogError("A câmera do jogador não foi atribuída no Inspector do ObjectGrabbing!");
@@ -39,25 +36,23 @@ public class ObjectGrabbing : MonoBehaviour
 
     private void TryGrabObject()
     {
-        RaycastHit hit;
-        // Ponto de partida do raio, levemente à frente da câmera para evitar colidir com o próprio jogador
-        Vector3 rayStartPoint = playerCamera.transform.position + playerCamera.transform.forward * 0.1f;
+        // Cria uma esfera de detecção na frente do jogador para encontrar objetos pegáveis
+        Collider[] grabbableColliders = Physics.OverlapSphere(transform.position + transform.forward, grabRadius, grabbableLayer);
 
-        // Modificamos a linha abaixo para usar o novo ponto de partida
-        if (Physics.Raycast(rayStartPoint, playerCamera.transform.forward, out hit, grabDistance, grabbableLayer))
+        if (grabbableColliders.Length > 0)
         {
-            if (hit.collider.CompareTag("Ball"))
-            {
-                grabbedObject = hit.collider.gameObject;
-                grabbedObjectRb = grabbedObject.GetComponent<Rigidbody>();
+            // Pega o objeto mais próximo do jogador dentro da esfera
+            Transform closestGrabbable = grabbableColliders.OrderBy(t => Vector3.Distance(transform.position, t.transform.position)).First().transform;
 
-                if (grabbedObjectRb != null)
-                {
-                    grabbedObjectRb.isKinematic = true;
-                    grabbedObject.transform.SetParent(handPoint);
-                    grabbedObject.transform.localPosition = Vector3.zero;
-                    grabbedObject.transform.localRotation = Quaternion.identity;
-                }
+            grabbedObject = closestGrabbable.gameObject;
+            grabbedObjectRb = grabbedObject.GetComponent<Rigidbody>();
+
+            if (grabbedObjectRb != null)
+            {
+                grabbedObjectRb.isKinematic = true;
+                grabbedObject.transform.SetParent(handPoint);
+                grabbedObject.transform.localPosition = Vector3.zero;
+                grabbedObject.transform.localRotation = Quaternion.identity;
             }
         }
     }
@@ -68,11 +63,20 @@ public class ObjectGrabbing : MonoBehaviour
         {
             grabbedObject.transform.SetParent(null);
             grabbedObjectRb.isKinematic = false;
-            grabbedObjectRb.AddForce(playerCamera.transform.forward * throwForce, ForceMode.VelocityChange);
+
+            // Agora, arremessa na direção que o personagem está olhando
+            grabbedObjectRb.AddForce(transform.forward * throwForce, ForceMode.VelocityChange);
         }
 
         grabbedObject = null;
         grabbedObjectRb = null;
+    }
+
+    // Opcional: Desenha a esfera de detecção no Editor da Unity para facilitar o debug
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position + transform.forward, grabRadius);
     }
 }
 
