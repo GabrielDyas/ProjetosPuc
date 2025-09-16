@@ -15,9 +15,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Atack",
+                    "name": "Interact",
                     "type": "Button",
                     "id": "6ab8f3b5-4b1e-41d5-9672-949fe8eec4c4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Close",
+                    "type": "Button",
+                    "id": "01d07c7f-5bf9-4701-917c-dc8e5b591254",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -87,7 +96,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Atack",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3f310c3e-562f-4a19-ad17-238ed5532153",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Close",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
