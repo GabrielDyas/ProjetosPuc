@@ -14,6 +14,7 @@ public class TubeController : MonoBehaviour
     {
         if (!isFilled && other.CompareTag("Ball"))
         {
+            Debug.Log("add bola");
             isFilled = true;
             currentBall = other.gameObject;
 
